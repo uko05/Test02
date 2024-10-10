@@ -77,6 +77,11 @@ const sidebar = document.getElementById('sidebar');
 const parentNode = document.querySelector('.parent-node');
 const childNodes = document.querySelector('.child-nodes');
 
+// 初期状態でサイドバーを隠す
+sidebar.classList.add('hidden');
+toggleButton.setAttribute('aria-expanded', false);
+toggleButton.setAttribute('aria-label', 'メニューを開く');
+
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('hidden'); // hiddenクラスを切り替え
     const isExpanded = !sidebar.classList.contains('hidden');
@@ -90,6 +95,7 @@ parentNode.addEventListener('click', (event) => {
     const isActive = childNodes.classList.contains('active');
     parentNode.textContent = `${isActive ? '▼' : '▶'} 推しキャラランキング`; // テキストを更新
 });
+
 //------------------------------------------------------------------------------------------------
 
 function loadImages() {
